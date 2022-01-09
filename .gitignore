@@ -36,3 +36,5 @@ lerna-debug.log*
 workspace.code-workspace
 .env
 .npmrc
+
+out/

@@ -9,18 +9,71 @@
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"flutter",
+		"dart"
+	  ],
 	"activationEvents": [
-        "onCommand:dart-print.helloWorld"
-	],
+        "onCommand:dart-print.removePrint",
+        "onCommand:dart-print.removePrint-all"
+    ],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "dart-print.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
+        "languages": [
+            {
+                "id": "dart",
+                "extensions": [
+                    ".dart"
+                ],
+                "aliases": [
+                    "Dart",
+                    "dart"
+                ]
+            }
+        ],
+        "configuration": {
+            "title": "Dart Print configuration",
+            "properties": {
+                "dartPrint.showErrorMessages": {
+                    "type": "boolean",
+                    "description": "Whether you want to see errors after dart-print task failure",
+                    "default": true
+                },
+                "dartPrint.showInfoMessages": {
+                    "type": "boolean",
+                    "description": "Whether you want to see notification after dart-print task completion",
+                    "default": true
+                },
+                "dartPrint.excludeGeneratedFiles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of generated file extensions to exclude",
+                    "default": [
+                        "g.dart",
+                        "config.dart",
+                        "freezed.dart"
+                    ]
+                },
+                "dartPrint.fixOnSave": {
+                    "type": "boolean",
+                    "description": "Auto fix dart prints on file save",
+                    "default": false
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "dart-print.removePrint",
+                "title": "Remove Prints"
+            },
+            {
+                "command": "dart-print.removePrint-all",
+                "title": "Remove All Prints"
+            }
+        ]
+    },
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
