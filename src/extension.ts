@@ -117,15 +117,16 @@ class VSCodeEditorAccess implements EditorAccess {
 	replaceLineAt(docUri: vscode.Uri, statements: vscode.Range[]): Thenable<boolean> {
 		var workspaceEdit = new vscode.WorkspaceEdit();
 		return this.editor.edit((edit) => {
-			console.log(statements.length);
+			// console.log(statements.length);
+			console.log(configResolver.deleteEmptyLine);
 			statements.forEach(range => {
 				edit.delete(new vscode.Range(range.start, range.end));
 				// workspaceEdit.delete(docUri, range);
-				if (configResolver.deleteEmptyLine) {
-					const line = this.getFile().lineAt(range.start);
-					edit.delete(line.rangeIncludingLineBreak);
-				}
-				vscode.workspace.applyEdit(workspaceEdit);
+				// if (!configResolver.deleteEmptyLine) {
+				// 	const line = this.getFile().lineAt(range.start);
+				// 	edit.delete(line.rangeIncludingLineBreak);
+				// }
+				// vscode.workspace.applyEdit(workspaceEdit);
 			});
 		});
 	}

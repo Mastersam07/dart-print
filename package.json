@@ -60,6 +60,11 @@
                     "type": "boolean",
                     "description": "Auto fix dart prints on file save",
                     "default": false
+                },
+                "dartPrint.deleteEmptyLine": {
+                    "type": "boolean",
+                    "description": "Delete empty line after removing print statement",
+                    "default": true
                 }
             }
         },
