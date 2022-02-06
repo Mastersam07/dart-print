@@ -1,6 +1,6 @@
-# dart-print README
+# dart-print
 
-This is the README for your extension "dart-print". After writing up a brief description, we recommend including the following sections.
+A plugin for VSCode to remove all Dart/Flutter print statements.
 
 ## Features
 
